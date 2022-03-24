@@ -65,7 +65,11 @@ function love.update(dt)
 
     local colliders = world:queryCircleArea(flagX, flagY, 10, {'Player'})
     if #colliders > 0 then
-        loadMap("level2")
+        if currentLevel == "level1" then
+            loadMap("level2")
+        elseif currentLevel == "level2" then
+            loadMap("level3")
+        end
     end
 end
 
@@ -74,9 +78,9 @@ function love.draw()
 
     cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
-        --drawPlayer()
+        drawPlayer()
         world:draw()
-        --drawEnemies()
+        drawEnemies()
     cam:detach()
 end
 
@@ -91,7 +95,7 @@ function love.keypressed(key)
         if currentLevel == "level1" then
             loadMap("level2")
         elseif currentLevel == "level2" then 
-            loadMap("level2")
+            loadMap("level3")
         end
     end
 end
