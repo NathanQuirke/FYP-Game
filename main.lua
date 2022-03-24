@@ -1,5 +1,5 @@
 function love.load()
-    love.window.setMode(1000, 640)
+    love.window.setMode(1600, 920)
 
     anim8 = require 'libraries/anim8/anim8'
     sti = require 'libraries/STI/sti'
@@ -69,12 +69,14 @@ function love.update(dt)
             loadMap("level2")
         elseif currentLevel == "level2" then
             loadMap("level3")
+        elseif currentLevel == "level3" then
+            loadMap("level4")
         end
     end
 end
 
 function love.draw()
-    love.graphics.draw(sprites.background, 0, 0, nil, 1.53)
+    love.graphics.draw(sprites.background, 0, 0, nil, 2.2)
 
     cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
@@ -82,6 +84,7 @@ function love.draw()
         world:draw()
         drawEnemies()
     cam:detach()
+    --insert hud
 end
 
 function love.keypressed(key)
