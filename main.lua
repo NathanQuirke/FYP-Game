@@ -32,13 +32,17 @@ function love.load()
     sounds = {}
     sounds.jump = love.audio.newSource("audio/jump.wav", "static")
     sounds.music = love.audio.newSource("audio/Chasing-Villains.mp3", "stream")
+    sounds.intro = love.audio.newSource("audio/intromusic.mp3", "stream")
     sounds.music:setLooping(true)
     sounds.music:setVolume(0.5)
+    sounds.intro:setLooping(true)
+    sounds.intro:setVolume(0.1)
 
     sprites = {}
     sprites.playerSheet = love.graphics.newImage("sprites/playerSheet.png")
     sprites.enemySheet = love.graphics.newImage("sprites/enemySheet.png")
-    sprites.background = love.graphics.newImage("sprites/background.jpg")
+    sprites.hills = love.graphics.newImage("sprites/world3.png")
+    sprites.forest = love.graphics.newImage("sprites/world2.png")
 
     local grid = anim8.newGrid(614, 564, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
     local enemyGrid = anim8.newGrid(100, 79, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
@@ -50,7 +54,6 @@ function love.load()
     animations.enemy = anim8.newAnimation(enemyGrid("1-2", 1), 0.05)
 
     wf = require "libraries/windfield/windfield"
-
     world = wf.newWorld(0, 800, false)
     world:setQueryDebugDrawing(true)
 
@@ -69,7 +72,7 @@ function love.load()
     flagX = 0
     flagY = 0
     currentLevel = "level1"
-
+    require("levelText")
     loadMap(currentLevel)
 end
 
@@ -98,16 +101,26 @@ end
 function love.draw()
     if state == "menu" then
         testmenu:draw(10, 10)
+        sounds.intro:play()
     elseif state == "game" then
-        love.graphics.draw(sprites.background, 0, 0, nil, 2.2)
-
+        if (currentLevel == "level1" or currentLevel == "level2") then
+            love.graphics.draw(sprites.hills, 0, 0, nil, 3.15, 3.6)
+        end
+        if (currentLevel == "level3" or currentLevel == "level4") then
+            love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
+        end
+        if (currentLevel == "level5" or currentLevel == "level6") then
+            love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
+        end
+        sounds.intro:stop()
         cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
         drawPlayer()
-        world:draw()
+        --world:draw()
         drawEnemies()
         cam:detach()
     --insert hud
+        levelText()
     end
 end
 
