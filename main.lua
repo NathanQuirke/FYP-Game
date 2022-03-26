@@ -15,9 +15,9 @@ function love.load()
         end
     }
     testmenu:addItem {
-        name = "Options",
+        name = "Mute Menu Music",
         action = function()
-            --options screen
+            state = "togglemute"
         end
     }
     testmenu:addItem {
@@ -26,6 +26,7 @@ function love.load()
             love.event.quit()
         end
     }
+    
 
     cam = cameraFile()
 
@@ -34,24 +35,24 @@ function love.load()
     sounds.music = love.audio.newSource("audio/Chasing-Villains.mp3", "stream")
     sounds.intro = love.audio.newSource("audio/intromusic.mp3", "stream")
     sounds.music:setLooping(true)
-    sounds.music:setVolume(0.5)
+    sounds.music:setVolume(0.3)
     sounds.intro:setLooping(true)
-    sounds.intro:setVolume(0.1)
+    sounds.intro:setVolume(0.2)
 
     sprites = {}
     sprites.playerSheet = love.graphics.newImage("sprites/playerSheet.png")
-    sprites.enemySheet = love.graphics.newImage("sprites/enemySheet.png")
+    sprites.enemySheet = love.graphics.newImage("sprites/enemy.png")
     sprites.hills = love.graphics.newImage("sprites/world3.png")
     sprites.forest = love.graphics.newImage("sprites/world2.png")
 
     local grid = anim8.newGrid(614, 564, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
-    local enemyGrid = anim8.newGrid(100, 79, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
+    local enemyGrid = anim8.newGrid(1500, 1500, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
 
     animations = {}
     animations.idle = anim8.newAnimation(grid("1-15", 1), 0.08)
     animations.jump = anim8.newAnimation(grid("1-7", 2), 0.08)
     animations.run = anim8.newAnimation(grid("1-15", 3), 0.08)
-    animations.enemy = anim8.newAnimation(enemyGrid("1-2", 1), 0.05)
+    animations.enemy = anim8.newAnimation(enemyGrid("1-1", 1), 0.05)
 
     wf = require "libraries/windfield/windfield"
     world = wf.newWorld(0, 800, false)
@@ -102,6 +103,9 @@ function love.draw()
     if state == "menu" then
         testmenu:draw(10, 10)
         sounds.intro:play()
+    elseif state == "togglemute" then
+        love.audio.stop()
+        testmenu:draw(10, 10)
     elseif state == "game" then
         if (currentLevel == "level1" or currentLevel == "level2") then
             love.graphics.draw(sprites.hills, 0, 0, nil, 3.15, 3.6)
@@ -119,7 +123,7 @@ function love.draw()
         --world:draw()
         drawEnemies()
         cam:detach()
-    --insert hud
+        --insert hud
         levelText()
     end
 end
@@ -147,14 +151,7 @@ function love.keypressed(key)
     end
 end
 
-function love.mousepressed(x, y, button)
-    if button == 1 then
-        local colliders = world:queryCircleArea(x, y, 200, {"Platform", "DeathBounds"})
-        for i, c in ipairs(colliders) do
-            c:destroy()
-        end
-    end
-end
+
 
 function spawnPlatform(x, y, width, height)
     if width > 0 and height > 0 then
