@@ -1,7 +1,7 @@
 return {
   version = "1.5",
   luaversion = "5.1",
-  tiledversion = "1.7.2",
+  tiledversion = "1.8.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 40,
@@ -9,7 +9,7 @@ return {
   tilewidth = 64,
   tileheight = 64,
   nextlayerid = 9,
-  nextobjectid = 188,
+  nextobjectid = 189,
   properties = {},
   tilesets = {
     {
@@ -113,7 +113,7 @@ return {
           x = 0,
           y = 384,
           width = 320,
-          height = 256,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -126,7 +126,7 @@ return {
           x = 384,
           y = 320,
           width = 128,
-          height = 320,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -139,7 +139,7 @@ return {
           x = 576,
           y = 256,
           width = 512,
-          height = 384,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -152,7 +152,7 @@ return {
           x = 1152,
           y = 192,
           width = 256,
-          height = 448,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -165,7 +165,7 @@ return {
           x = 1472,
           y = 128,
           width = 64,
-          height = 512,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -178,7 +178,7 @@ return {
           x = 1600,
           y = 64,
           width = 64,
-          height = 576,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -191,7 +191,7 @@ return {
           x = 1728,
           y = 512,
           width = 576,
-          height = 128,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -204,7 +204,7 @@ return {
           x = 2368,
           y = 448,
           width = 192,
-          height = 192,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {}
@@ -302,6 +302,19 @@ return {
           x = 2496,
           y = 384,
           width = 64,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 188,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 2494,
+          y = 385,
+          width = 66,
           height = 64,
           rotation = 0,
           visible = true,

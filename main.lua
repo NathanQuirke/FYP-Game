@@ -40,18 +40,18 @@ function love.load()
     sounds.intro:setVolume(0.2)
 
     sprites = {}
-    sprites.playerSheet = love.graphics.newImage("sprites/playerSheet.png")
+    sprites.playerSheet = love.graphics.newImage("sprites/playerSheet2.png")
     sprites.enemySheet = love.graphics.newImage("sprites/enemy.png")
     sprites.hills = love.graphics.newImage("sprites/world3.png")
     sprites.forest = love.graphics.newImage("sprites/world2.png")
 
-    local grid = anim8.newGrid(614, 564, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
+    local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
     local enemyGrid = anim8.newGrid(1500, 1500, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
 
     animations = {}
-    animations.idle = anim8.newAnimation(grid("1-15", 1), 0.08)
-    animations.jump = anim8.newAnimation(grid("1-7", 2), 0.08)
-    animations.run = anim8.newAnimation(grid("1-15", 3), 0.08)
+    animations.idle = anim8.newAnimation(grid("1-1", 1), 0.08)
+    animations.run = anim8.newAnimation(grid("1-5", 2), 0.08)
+    animations.jump = anim8.newAnimation(grid("1-9", 3), 0.08)
     animations.enemy = anim8.newAnimation(enemyGrid("1-1", 1), 0.05)
 
     wf = require "libraries/windfield/windfield"
@@ -120,7 +120,7 @@ function love.draw()
         cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
         drawPlayer()
-        --world:draw()
+        world:draw()
         drawEnemies()
         cam:detach()
         --insert hud

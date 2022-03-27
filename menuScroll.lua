@@ -33,7 +33,7 @@ return {
 						love.graphics.setColor(255, 255, 255, 128)
 					end
 					font = love.graphics.newFont(100)
-					love.graphics.print(item.name, font, 700, y + 5, 0, 0.5)
+					love.graphics.print(item.name, font, 600, y + 5, 0, 0.5)
 				end
 			end,
 			keypressed = function(self, key)
