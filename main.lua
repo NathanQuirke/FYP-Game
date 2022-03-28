@@ -5,6 +5,7 @@ function love.load()
     sti = require "libraries/STI/sti"
     cameraFile = require "libraries/hump/camera"
 
+    InMenu = true
     Menu = require "menuScroll"
     state = "menu"
     testmenu = Menu.new()
@@ -12,12 +13,6 @@ function love.load()
         name = "Start Game",
         action = function()
             state = "game"
-        end
-    }
-    testmenu:addItem {
-        name = "Mute Menu Music",
-        action = function()
-            state = "togglemute"
         end
     }
     testmenu:addItem {
@@ -44,13 +39,15 @@ function love.load()
     sprites.enemySheet = love.graphics.newImage("sprites/enemy.png")
     sprites.hills = love.graphics.newImage("sprites/world3.png")
     sprites.forest = love.graphics.newImage("sprites/world2.png")
+    sprites.menu = love.graphics.newImage("sprites/menu.png")
+    sprites.controls = love.graphics.newImage("sprites/controls.png")
 
     local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
     local enemyGrid = anim8.newGrid(1500, 1500, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
 
     animations = {}
     animations.idle = anim8.newAnimation(grid("1-1", 1), 0.08)
-    animations.run = anim8.newAnimation(grid("1-5", 2), 0.08)
+    animations.run = anim8.newAnimation(grid("1-15", 2), 0.08)
     animations.jump = anim8.newAnimation(grid("1-9", 3), 0.08)
     animations.enemy = anim8.newAnimation(enemyGrid("1-1", 1), 0.05)
 
@@ -95,17 +92,20 @@ function love.update(dt)
             loadMap("level3")
         elseif currentLevel == "level3" then
             loadMap("level4")
+        elseif currentLevel == "level4" then
+            loadMap("level5")
         end
     end
 end
 
 function love.draw()
     if state == "menu" then
+        love.graphics.draw(sprites.menu, 0, 0, nil, 1.27, 1.28)
+        love.graphics.draw(sprites.controls, 1203, 541, nil, 0.4, 0.4)
+        if InMenu == true then
         testmenu:draw(10, 10)
+        end
         sounds.intro:play()
-    elseif state == "togglemute" then
-        love.audio.stop()
-        testmenu:draw(10, 10)
     elseif state == "game" then
         if (currentLevel == "level1" or currentLevel == "level2") then
             love.graphics.draw(sprites.hills, 0, 0, nil, 3.15, 3.6)
@@ -116,11 +116,12 @@ function love.draw()
         if (currentLevel == "level5" or currentLevel == "level6") then
             love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
         end
+        InMenu = false
         sounds.intro:stop()
         cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
         drawPlayer()
-        world:draw()
+        --world:draw()
         drawEnemies()
         cam:detach()
         --insert hud
@@ -137,7 +138,7 @@ function love.keypressed(key)
         sounds.music:play()
         if key == "up" then
             if player.grounded then
-                player:applyLinearImpulse(0, -5000)
+                player:applyLinearImpulse(0, -4500)
                 sounds.jump:play()
             end
         end
@@ -147,6 +148,8 @@ function love.keypressed(key)
             loadMap("level2")
         elseif currentLevel == "level2" then
             loadMap("level3")
+        elseif currentLevel == "level3" then
+            loadMap("level4")
         end
     end
 end

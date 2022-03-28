@@ -22,7 +22,7 @@ return {
 			draw = function(self)
 				local height = 170
 				
-				love.graphics.setColor(0, 0, 255, 255)
+				love.graphics.setColor(0, 0, 0, 255)
 				love.graphics.rectangle('fill', 0, love.graphics.getHeight()/2 - height/2  - 45, love.graphics.getWidth(), height)
 				
 				for i, item in ipairs(self.items) do
@@ -37,7 +37,8 @@ return {
 				end
 			end,
 			keypressed = function(self, key)
-				if key == 'up' then
+				if InMenu == true then
+					if key == 'up' then
 					if self.selected > 1 then
 						self.selected = self.selected - 1
 						self.animOffset = self.animOffset + 1
@@ -58,6 +59,7 @@ return {
 						self.items[self.selected]:action()
 					end
 				end
+			end
 			end
 		}
 	end
