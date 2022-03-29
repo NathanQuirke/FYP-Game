@@ -41,11 +41,11 @@ function love.load()
     sprites.forest = love.graphics.newImage("sprites/world2.png")
     sprites.menu = love.graphics.newImage("sprites/menu.png")
     sprites.controls = love.graphics.newImage("sprites/controls.png")
-    sprites.title = love.graphics.newImage("sprites/title.png")
     sprites.jungle = love.graphics.newImage("sprites/jungle.png")
     sprites.city = love.graphics.newImage("sprites/city.png")
     sprites.spooky = love.graphics.newImage("sprites/spooky.png")
     sprites.logo = love.graphics.newImage("sprites/logo.png")
+    sprites.endScreen = love.graphics.newImage("sprites/hills.png")
 
 
     local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
@@ -119,9 +119,8 @@ function love.draw()
     if state == "menu" then
         love.graphics.draw(sprites.menu, 0, 0, nil, 1.27, 1.28)
         love.graphics.draw(sprites.controls, 1203, 541, nil, 0.4, 0.4)
-        love.graphics.draw(sprites.title, 0, -70, nil, 2, 1)
         title = love.graphics.newFont(130)
-        love.graphics.print("Grass Runner", title, 340, 10)
+        love.graphics.print("Grass Runner", title, 380, 60)
         if InMenu == true then
         testmenu:draw(10, 10)
         end
@@ -154,6 +153,7 @@ function love.draw()
         levelText()
     end
     if state == "endScreen" then
+        love.graphics.draw(sprites.endScreen, 0, 0, nil, 2, 1.55)
         title = love.graphics.newFont(130)
         title2 = love.graphics.newFont(80)
         title3 = love.graphics.newFont(50)
@@ -161,6 +161,7 @@ function love.draw()
         love.graphics.print("created by Nathan Quirke", title2, 300, 380)
         love.graphics.draw(sprites.logo, 900, 550, nil, 2, 1.7)
         love.graphics.print("Made with LÖVE2D", title3, 420, 600)
+        
         sounds.music:stop()
 
     end
