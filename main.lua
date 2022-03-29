@@ -41,6 +41,12 @@ function love.load()
     sprites.forest = love.graphics.newImage("sprites/world2.png")
     sprites.menu = love.graphics.newImage("sprites/menu.png")
     sprites.controls = love.graphics.newImage("sprites/controls.png")
+    sprites.title = love.graphics.newImage("sprites/title.png")
+    sprites.jungle = love.graphics.newImage("sprites/jungle.png")
+    sprites.city = love.graphics.newImage("sprites/city.png")
+    sprites.spooky = love.graphics.newImage("sprites/spooky.png")
+    sprites.logo = love.graphics.newImage("sprites/logo.png")
+
 
     local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
     local enemyGrid = anim8.newGrid(1500, 1500, sprites.enemySheet:getWidth(), sprites.enemySheet:getHeight())
@@ -94,6 +100,17 @@ function love.update(dt)
             loadMap("level4")
         elseif currentLevel == "level4" then
             loadMap("level5")
+        elseif currentLevel == "level5" then
+            loadMap("level6")
+        elseif currentLevel == "level6" then
+            loadMap("level7")
+        elseif currentLevel == "level7" then
+            loadMap("level8")
+        elseif currentLevel == "level8" then
+            loadMap("level9")
+        elseif currentLevel == "level9" then
+            loadMap("level10")
+        else state = "endScreen"
         end
     end
 end
@@ -102,6 +119,9 @@ function love.draw()
     if state == "menu" then
         love.graphics.draw(sprites.menu, 0, 0, nil, 1.27, 1.28)
         love.graphics.draw(sprites.controls, 1203, 541, nil, 0.4, 0.4)
+        love.graphics.draw(sprites.title, 0, -70, nil, 2, 1)
+        title = love.graphics.newFont(130)
+        love.graphics.print("Grass Runner", title, 340, 10)
         if InMenu == true then
         testmenu:draw(10, 10)
         end
@@ -114,7 +134,13 @@ function love.draw()
             love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
         end
         if (currentLevel == "level5" or currentLevel == "level6") then
-            love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
+            love.graphics.draw(sprites.jungle, 0, 0, nil, 2, 1.7)
+        end
+        if (currentLevel == "level7" or currentLevel == "level8") then
+            love.graphics.draw(sprites.city, 0, 0, nil, 2, 1.7)
+        end
+        if (currentLevel == "level9" or currentLevel == "level10") then
+            love.graphics.draw(sprites.spooky, 0, 0, nil, 2, 1.7)
         end
         InMenu = false
         sounds.intro:stop()
@@ -126,6 +152,17 @@ function love.draw()
         cam:detach()
         --insert hud
         levelText()
+    end
+    if state == "endScreen" then
+        title = love.graphics.newFont(130)
+        title2 = love.graphics.newFont(80)
+        title3 = love.graphics.newFont(50)
+        love.graphics.print("Grass Runner", title, 360, 150)
+        love.graphics.print("created by Nathan Quirke", title2, 300, 380)
+        love.graphics.draw(sprites.logo, 900, 550, nil, 2, 1.7)
+        love.graphics.print("Made with LÖVE2D", title3, 420, 600)
+        sounds.music:stop()
+
     end
 end
 
@@ -150,6 +187,19 @@ function love.keypressed(key)
             loadMap("level3")
         elseif currentLevel == "level3" then
             loadMap("level4")
+        elseif currentLevel == "level4" then
+            loadMap("level5")
+        elseif currentLevel == "level5" then
+            loadMap("level6")
+        elseif currentLevel == "level6" then
+            loadMap("level7")
+        elseif currentLevel == "level7" then
+            loadMap("level8")
+        elseif currentLevel == "level8" then
+            loadMap("level9")
+        elseif currentLevel == "level9" then
+            loadMap("level10")
+        else state = "endScreen"
         end
     end
 end

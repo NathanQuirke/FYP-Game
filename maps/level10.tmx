@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="343">
+ <editorsettings>
+  <export target="level10.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" name="platformer" tilewidth="64" tileheight="64" tilecount="9" columns="3">
+  <image source="tileset.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="10" name="[64x64] Rocky Grass" tilewidth="64" tileheight="64" tilecount="56" columns="8">
+  <image source="[64x64] Rocky Grass.png" width="512" height="448"/>
+ </tileset>
+ <tileset firstgid="66" name="flag" tilewidth="64" tileheight="64" tilecount="33" columns="3">
+  <image source="flag.png" width="205" height="712"/>
+ </tileset>
+ <tileset firstgid="99" name="tiles-wood" tilewidth="64" tileheight="64" tilecount="20" columns="5">
+  <image source="1) Tilemaps/tiles-wood.png" width="320" height="256"/>
+ </tileset>
+ <tileset firstgid="119" name="box" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="3) Objects/box.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="120" name="tiles-skulls" tilewidth="64" tileheight="64" tilecount="20" columns="5">
+  <image source="1) Tilemaps/tiles-skulls.png" width="320" height="256"/>
+ </tileset>
+ <objectgroup id="2" name="Platforms lvl">
+  <object id="302" x="192" y="0" width="384" height="64"/>
+  <object id="303" x="0" y="-192" width="576" height="192"/>
+  <object id="304" x="-64" y="0" width="64" height="640"/>
+  <object id="305" x="0" y="128" width="128" height="512"/>
+  <object id="306" x="128" y="192" width="448" height="448"/>
+  <object id="307" x="776" y="-218.667" width="118.667" height="218.667"/>
+  <object id="308" x="777.333" y="-4" width="118.667" height="305.333"/>
+  <object id="309" x="640" y="256" width="144" height="44"/>
+  <object id="310" x="652" y="297.333" width="237.333" height="20"/>
+  <object id="311" x="576" y="448" width="64" height="41"/>
+  <object id="312" x="576" y="490" width="52" height="21"/>
+  <object id="313" x="704" y="512" width="64" height="128"/>
+  <object id="314" x="896" y="576" width="64" height="64"/>
+  <object id="315" x="1344" y="64" width="128" height="64"/>
+  <object id="316" x="1152" y="128" width="126.667" height="22.6667"/>
+  <object id="318" x="1156" y="384" width="130.667" height="40"/>
+  <object id="319" x="1664" y="576" width="128" height="64"/>
+  <object id="320" x="1024" y="512" width="128" height="64"/>
+  <object id="321" x="1856" y="448" width="128" height="192"/>
+  <object id="322" x="2048" y="256" width="128" height="192"/>
+  <object id="323" x="2176" y="128" width="128" height="192"/>
+  <object id="324" x="2304" y="64" width="128" height="192"/>
+  <object id="325" x="2496" y="256" width="64" height="192"/>
+  <object id="326" x="2688" y="192" width="64" height="192"/>
+  <object id="327" x="2944" y="192" width="64" height="192"/>
+  <object id="328" x="3136" y="448" width="64" height="192"/>
+  <object id="329" x="3328" y="256" width="64" height="192"/>
+  <object id="330" x="3520" y="128" width="64" height="192"/>
+  <object id="331" x="3648" y="384" width="64" height="192"/>
+  <object id="332" x="3712" y="512" width="128" height="128"/>
+  <object id="333" x="3264" y="384" width="64" height="64"/>
+  <object id="334" x="1024" y="256" width="126" height="10"/>
+  <object id="336" x="1028" y="296" width="61" height="19"/>
+  <object id="337" x="1984" y="320" width="64" height="64"/>
+  <object id="338" x="2048" y="320" width="64" height="64"/>
+  <object id="339" x="2048" y="384" width="64" height="64"/>
+  <object id="340" x="1992" y="390" width="56" height="31"/>
+  <object id="341" x="2007" y="422" width="46" height="24"/>
+ </objectgroup>
+ <objectgroup id="6" name="Enemies"/>
+ <layer id="5" name="Tile Layer 2" width="60" height="10">
+  <data encoding="csv">
+0,0,0,138,138,138,138,138,138,0,0,0,128,129,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,128,129,0,0,0,0,0,0,0,121,122,0,0,0,0,0,0,0,0,0,0,0,0,0,123,124,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+131,131,0,0,0,0,0,0,0,0,0,0,128,129,0,0,0,0,121,122,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,124,128,129,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,0,0,0,68,
+138,139,131,131,131,131,131,131,131,0,0,0,128,129,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,128,129,133,134,0,0,0,0,120,0,0,0,120,0,0,0,0,0,0,0,0,125,0,69,70,71,
+138,139,139,139,139,138,139,139,129,0,121,132,136,134,0,0,121,122,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,124,133,134,0,0,0,120,0,0,125,0,0,0,125,0,0,0,0,0,120,0,0,130,0,72,73,74,
+139,138,139,138,139,138,139,139,129,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,138,129,0,0,0,0,0,125,0,0,130,0,0,0,130,0,0,0,0,0,125,0,0,0,0,0,0,95,
+139,138,139,139,139,139,138,139,129,0,0,0,0,0,0,0,0,0,121,122,0,0,0,0,0,0,0,0,0,0,0,133,136,134,0,0,0,0,0,130,0,0,0,0,0,0,0,0,0,0,0,120,134,0,0,0,0,120,0,95,
+139,139,138,138,139,138,139,139,138,122,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,124,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,0,0,0,0,0,0,0,125,97,98,
+138,139,139,139,139,139,139,139,129,0,0,120,0,0,0,0,121,122,0,0,0,0,0,0,0,0,0,0,0,128,129,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,125,0,0,0,0,0,0,0,130,123,124,
+139,138,139,138,138,139,139,138,129,0,0,125,0,0,120,0,0,0,0,0,0,0,0,0,0,0,121,122,0,133,134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0,0,0,0,0,0,0,128,129
+</data>
+ </layer>
+ <objectgroup id="7" name="Flag">
+  <object id="216" x="3776" y="448" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="8" name="Start">
+  <object id="193" x="64" y="64" width="64" height="64"/>
+ </objectgroup>
+</map>
