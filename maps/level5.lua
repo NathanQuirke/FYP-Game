@@ -1,7 +1,7 @@
 return {
   version = "1.5",
   luaversion = "5.1",
-  tiledversion = "1.8.2",
+  tiledversion = "1.7.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 60,
@@ -9,7 +9,7 @@ return {
   tilewidth = 64,
   tileheight = 64,
   nextlayerid = 9,
-  nextobjectid = 290,
+  nextobjectid = 291,
   properties = {},
   tilesets = {
     {
@@ -1122,19 +1122,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 285,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1536,
-          y = 192,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 286,
           name = "",
           type = "",
@@ -1154,6 +1141,19 @@ return {
           shape = "rectangle",
           x = 3264,
           y = 320,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 290,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1792,
+          y = 192,
           width = 64,
           height = 64,
           rotation = 0,
