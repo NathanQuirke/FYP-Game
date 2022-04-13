@@ -27,12 +27,12 @@ function love.load()
 
     sounds = {}
     sounds.jump = love.audio.newSource("audio/jump.wav", "static")
-    sounds.music = love.audio.newSource("audio/Chasing-Villains.mp3", "stream")
+    sounds.music = love.audio.newSource("audio/Invasion.mp3", "stream")
     sounds.intro = love.audio.newSource("audio/intromusic.mp3", "stream")
     sounds.music:setLooping(true)
-    sounds.music:setVolume(0.3)
+    sounds.music:setVolume(3)
     sounds.intro:setLooping(true)
-    sounds.intro:setVolume(0.2)
+    sounds.intro:setVolume(0.8)
 
     sprites = {}
     sprites.playerSheet = love.graphics.newImage("sprites/playerSheet2.png")
@@ -182,21 +182,20 @@ function love.draw()
         cam:attach()
         gameMap:drawLayer(gameMap.layers["Tile Layer 2"])
         drawPlayer()
-        --world:draw()
+        --world:draw() This function can be used to make all collision lines and boxes visible.
         drawEnemies()
         cam:detach()
-        --insert hud
     end
     if state == "endScreen" then
         love.graphics.draw(sprites.endScreen, 0, 0, nil, 1.5, 1)
         title = love.graphics.newFont(150)
-        title2 = love.graphics.newFont(80)
-        title3 = love.graphics.newFont(50)
+        title2 = love.graphics.newFont(40)
+        title3 = love.graphics.newFont(30)
         love.graphics.draw(sprites.title, 30, 70, nil, 0.7, 1)
-        love.graphics.print("created by Nathan Quirke", title2, 90, 300)
-        love.graphics.draw(sprites.logo, 800, 400, nil, 1.5, 1.3)
-        love.graphics.print("Made with LÖVE2D", title3, 300, 440)
-        
+        love.graphics.print("created by Nathan Quirke", title2, 90, 270)
+        love.graphics.draw(sprites.logo, 460, 320, nil, 0.8, 0.8)
+        love.graphics.print("Made with LÖVE2D", title3, 150, 350)
+        love.graphics.print("Gameplay Music by Eric Matyas. \n 'Invasion' www.soundimage.org ", title3, 650, 450)
         sounds.music:stop()
 
     end
