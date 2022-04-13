@@ -27,8 +27,8 @@ function love.load()
 
     sounds = {}
     sounds.jump = love.audio.newSource("audio/jump.wav", "static")
-    sounds.music = love.audio.newSource("audio/Invasion.mp3", "stream")
-    sounds.intro = love.audio.newSource("audio/intromusic.mp3", "stream")
+    sounds.music = love.audio.newSource("audio/Invasion.mp3", "static")
+    sounds.intro = love.audio.newSource("audio/intromusic.mp3", "static")
     sounds.music:setLooping(true)
     sounds.music:setVolume(3)
     sounds.intro:setLooping(true)
