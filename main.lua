@@ -48,6 +48,15 @@ function love.load()
     sprites.endScreen = love.graphics.newImage("sprites/hills.png")
     sprites.title = love.graphics.newImage("sprites/title.png")
     sprites.level11 = love.graphics.newImage("sprites/level11.png")
+    sprites.level12 = love.graphics.newImage("sprites/level12.png")
+    sprites.level21 = love.graphics.newImage("sprites/level21.png")
+    sprites.level22 = love.graphics.newImage("sprites/level22.png")
+    sprites.level31 = love.graphics.newImage("sprites/level31.png")
+    sprites.level32 = love.graphics.newImage("sprites/level32.png")
+    sprites.level41 = love.graphics.newImage("sprites/level41.png")
+    sprites.level42 = love.graphics.newImage("sprites/level42.png")
+    sprites.level51 = love.graphics.newImage("sprites/level51.png")
+    sprites.level52 = love.graphics.newImage("sprites/level52.png")
 
 
     local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
@@ -129,43 +138,43 @@ function love.draw()
     elseif state == "game" then
         if (currentLevel == "level1") then
             love.graphics.draw(sprites.hills, 0, 0, nil, 2.4, 2.35)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level2") then
             love.graphics.draw(sprites.hills, 0, 0, nil, 2.4, 2.35)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level12, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level3") then
             love.graphics.draw(sprites.forest, 0, 0, nil, 1.5, 0.76)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level21, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level4") then
             love.graphics.draw(sprites.forest, 0, 0, nil, 1.5, 0.76)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level22, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level5") then
             love.graphics.draw(sprites.jungle, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level31, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level6") then
             love.graphics.draw(sprites.jungle, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level32, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level7") then
             love.graphics.draw(sprites.city, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level41, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level8") then
             love.graphics.draw(sprites.city, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level42, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level9") then
             love.graphics.draw(sprites.spooky, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level51, 20, 20, nil, 0.5, 0.5)
         end
         if (currentLevel == "level10") then
             love.graphics.draw(sprites.spooky, 0, 0, nil, 1.5, 1)
-            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+            love.graphics.draw(sprites.level52, 20, 20, nil, 0.5, 0.5)
         end
         
         InMenu = false
