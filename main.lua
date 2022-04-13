@@ -128,7 +128,7 @@ end
 function love.draw()
     if state == "menu" then
         love.graphics.draw(sprites.menu, 0, 0, nil, 1.27, 1.28)
-        love.graphics.draw(sprites.controls, 1203, 541, nil, 0.4, 0.4)
+        love.graphics.draw(sprites.controls, 910, 347, nil, 0.3, 0.27)
         title = love.graphics.newFont(110)
         love.graphics.draw(sprites.title, 30, 20, nil, 0.7, 1)
         if InMenu == true then
@@ -192,7 +192,7 @@ function love.draw()
         title = love.graphics.newFont(150)
         title2 = love.graphics.newFont(80)
         title3 = love.graphics.newFont(50)
-        love.graphics.print("Grass Runner", title, 100, 70)
+        love.graphics.draw(sprites.title, 30, 70, nil, 0.7, 1)
         love.graphics.print("created by Nathan Quirke", title2, 90, 300)
         love.graphics.draw(sprites.logo, 800, 400, nil, 1.5, 1.3)
         love.graphics.print("Made with LÖVE2D", title3, 300, 440)
@@ -204,6 +204,11 @@ end
 
 function love.keypressed(key)
     testmenu:keypressed(key)
+    if state == "menu" then
+        if key == "q" then
+        love.event.quit()
+        end
+    end
     if state == "game" then
         if key == "q" then
             love.event.quit()
@@ -214,6 +219,11 @@ function love.keypressed(key)
                 player:applyLinearImpulse(0, -4500)
                 sounds.jump:play()
             end
+        end
+    end
+    if state == "endScreen" then
+        if key == "q" then
+        love.event.quit()
         end
     end
     if key == "r" then
