@@ -47,6 +47,7 @@ function love.load()
     sprites.logo = love.graphics.newImage("sprites/logo.png")
     sprites.endScreen = love.graphics.newImage("sprites/hills.png")
     sprites.title = love.graphics.newImage("sprites/title.png")
+    sprites.button = love.graphics.newImage("sprites/button.png")
     sprites.level11 = love.graphics.newImage("sprites/level11.png")
     sprites.level12 = love.graphics.newImage("sprites/level12.png")
     sprites.level21 = love.graphics.newImage("sprites/level21.png")
@@ -131,6 +132,8 @@ function love.draw()
         love.graphics.draw(sprites.controls, 910, 347, nil, 0.3, 0.27)
         title = love.graphics.newFont(110)
         love.graphics.draw(sprites.title, 30, 20, nil, 0.7, 1)
+        love.graphics.draw(sprites.button, 0, 350, nil, 0.4, 0.4)
+
         if InMenu == true then
         testmenu:draw(10, 10)
         end
