@@ -20,10 +20,10 @@ return {
 				self.animOffset = self.animOffset / (1 + dt*10)
 			end,
 			draw = function(self)
-				local height = 170
+				local height = 100
 				
 				love.graphics.setColor(0, 0, 0, 255)
-				love.graphics.rectangle('fill', 0, love.graphics.getHeight()/2 - height/2  - 45, love.graphics.getWidth(), height)
+				love.graphics.rectangle('fill', 0, love.graphics.getHeight()/2 - height/2 - 10, love.graphics.getWidth(), height)
 				
 				for i, item in ipairs(self.items) do
 					local y = love.graphics.getHeight()/2 + ((i - self.selected) * height) - height/2 - (self.animOffset * height)
@@ -33,7 +33,7 @@ return {
 						love.graphics.setColor(255, 255, 255, 128)
 					end
 					font = love.graphics.newFont(100)
-					love.graphics.print(item.name, font, 600, y + 5, 0, 0.5)
+					love.graphics.print(item.name, font, 500, y + 5, 0, 0.5)
 				end
 			end,
 			keypressed = function(self, key)

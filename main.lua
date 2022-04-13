@@ -1,5 +1,5 @@
 function love.load()
-    love.window.setMode(1600, 920)
+    love.window.setMode(1200, 600)
 
     anim8 = require "libraries/anim8/anim8"
     sti = require "libraries/STI/sti"
@@ -46,6 +46,8 @@ function love.load()
     sprites.spooky = love.graphics.newImage("sprites/spooky.png")
     sprites.logo = love.graphics.newImage("sprites/logo.png")
     sprites.endScreen = love.graphics.newImage("sprites/hills.png")
+    sprites.title = love.graphics.newImage("sprites/title.png")
+    sprites.level11 = love.graphics.newImage("sprites/level11.png")
 
 
     local grid = anim8.newGrid(100, 200, sprites.playerSheet:getWidth(), sprites.playerSheet:getHeight())
@@ -76,7 +78,6 @@ function love.load()
     flagX = 0
     flagY = 0
     currentLevel = "level1"
-    require("levelText")
     loadMap(currentLevel)
 end
 
@@ -119,28 +120,54 @@ function love.draw()
     if state == "menu" then
         love.graphics.draw(sprites.menu, 0, 0, nil, 1.27, 1.28)
         love.graphics.draw(sprites.controls, 1203, 541, nil, 0.4, 0.4)
-        title = love.graphics.newFont(130)
-        love.graphics.print("Grass Runner", title, 380, 60)
+        title = love.graphics.newFont(110)
+        love.graphics.draw(sprites.title, 30, 20, nil, 0.7, 1)
         if InMenu == true then
         testmenu:draw(10, 10)
         end
         sounds.intro:play()
     elseif state == "game" then
-        if (currentLevel == "level1" or currentLevel == "level2") then
-            love.graphics.draw(sprites.hills, 0, 0, nil, 3.15, 3.6)
+        if (currentLevel == "level1") then
+            love.graphics.draw(sprites.hills, 0, 0, nil, 2.4, 2.35)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
         end
-        if (currentLevel == "level3" or currentLevel == "level4") then
-            love.graphics.draw(sprites.forest, 0, 0, nil, 1.74, 1.2)
+        if (currentLevel == "level2") then
+            love.graphics.draw(sprites.hills, 0, 0, nil, 2.4, 2.35)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
         end
-        if (currentLevel == "level5" or currentLevel == "level6") then
-            love.graphics.draw(sprites.jungle, 0, 0, nil, 2, 1.7)
+        if (currentLevel == "level3") then
+            love.graphics.draw(sprites.forest, 0, 0, nil, 1.5, 0.76)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
         end
-        if (currentLevel == "level7" or currentLevel == "level8") then
-            love.graphics.draw(sprites.city, 0, 0, nil, 2, 1.7)
+        if (currentLevel == "level4") then
+            love.graphics.draw(sprites.forest, 0, 0, nil, 1.5, 0.76)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
         end
-        if (currentLevel == "level9" or currentLevel == "level10") then
-            love.graphics.draw(sprites.spooky, 0, 0, nil, 2, 1.7)
+        if (currentLevel == "level5") then
+            love.graphics.draw(sprites.jungle, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
         end
+        if (currentLevel == "level6") then
+            love.graphics.draw(sprites.jungle, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+        end
+        if (currentLevel == "level7") then
+            love.graphics.draw(sprites.city, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+        end
+        if (currentLevel == "level8") then
+            love.graphics.draw(sprites.city, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+        end
+        if (currentLevel == "level9") then
+            love.graphics.draw(sprites.spooky, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+        end
+        if (currentLevel == "level10") then
+            love.graphics.draw(sprites.spooky, 0, 0, nil, 1.5, 1)
+            love.graphics.draw(sprites.level11, 20, 20, nil, 0.4, 0.4)
+        end
+        
         InMenu = false
         sounds.intro:stop()
         cam:attach()
@@ -150,17 +177,16 @@ function love.draw()
         drawEnemies()
         cam:detach()
         --insert hud
-        levelText()
     end
     if state == "endScreen" then
-        love.graphics.draw(sprites.endScreen, 0, 0, nil, 2, 1.55)
-        title = love.graphics.newFont(130)
+        love.graphics.draw(sprites.endScreen, 0, 0, nil, 1.5, 1)
+        title = love.graphics.newFont(150)
         title2 = love.graphics.newFont(80)
         title3 = love.graphics.newFont(50)
-        love.graphics.print("Grass Runner", title, 360, 150)
-        love.graphics.print("created by Nathan Quirke", title2, 300, 380)
-        love.graphics.draw(sprites.logo, 900, 550, nil, 2, 1.7)
-        love.graphics.print("Made with LÖVE2D", title3, 420, 600)
+        love.graphics.print("Grass Runner", title, 100, 70)
+        love.graphics.print("created by Nathan Quirke", title2, 90, 300)
+        love.graphics.draw(sprites.logo, 800, 400, nil, 1.5, 1.3)
+        love.graphics.print("Made with LÖVE2D", title3, 300, 440)
         
         sounds.music:stop()
 
