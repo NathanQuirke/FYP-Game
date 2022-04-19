@@ -222,32 +222,32 @@ function love.keypressed(key)
                 sounds.jump:play()
             end
         end
+        if key == "r" then
+            if currentLevel == "level1" then
+                loadMap("level2")
+            elseif currentLevel == "level2" then
+                loadMap("level3")
+            elseif currentLevel == "level3" then
+                loadMap("level4")
+            elseif currentLevel == "level4" then
+                loadMap("level5")
+            elseif currentLevel == "level5" then
+                loadMap("level6")
+            elseif currentLevel == "level6" then
+                loadMap("level7")
+            elseif currentLevel == "level7" then
+                loadMap("level8")
+            elseif currentLevel == "level8" then
+                loadMap("level9")
+            elseif currentLevel == "level9" then
+                loadMap("level10")
+            else state = "endScreen"
+            end
+        end
     end
     if state == "endScreen" then
         if key == "q" then
         love.event.quit()
-        end
-    end
-    if key == "r" then
-        if currentLevel == "level1" then
-            loadMap("level2")
-        elseif currentLevel == "level2" then
-            loadMap("level3")
-        elseif currentLevel == "level3" then
-            loadMap("level4")
-        elseif currentLevel == "level4" then
-            loadMap("level5")
-        elseif currentLevel == "level5" then
-            loadMap("level6")
-        elseif currentLevel == "level6" then
-            loadMap("level7")
-        elseif currentLevel == "level7" then
-            loadMap("level8")
-        elseif currentLevel == "level8" then
-            loadMap("level9")
-        elseif currentLevel == "level9" then
-            loadMap("level10")
-        else state = "endScreen"
         end
     end
 end
